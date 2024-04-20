@@ -7,6 +7,12 @@ const fromImg = document.querySelector(".from img");
 const toImg = document.querySelector(".to img");
 const msg = document.querySelector(".msg");
 const Ex = document.querySelector("i");
+
+let press = () =>{
+    let btn = new Audio("click.mp3");
+    btn.play();
+}
+
 for(let select of dropdowns){
     for(code in countryList){
         let newOpt = document.createElement("option");
@@ -37,6 +43,7 @@ window.addEventListener("load",()=>{
 btn.addEventListener("click",(evt)=>{
     evt.preventDefault();
     updateExchange();
+    press();
 });
 
 const updateExchange = async() =>{
@@ -65,4 +72,5 @@ Ex.addEventListener("click",()=>{
     toCurr.value = value1;  
     fromImg.src=src2;
     toImg.src=src1; 
+    press();
 })
