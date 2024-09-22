@@ -10,6 +10,7 @@ const Ex = document.querySelector("i");
 
 let press = () =>{
     let btn = new Audio("click.mp3");
+    btn.volume=0.5;
     btn.play();
 }
 
@@ -60,7 +61,7 @@ const updateExchange = async() =>{
     let data = await response.json();
     let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
     let finalAmount = amtVal * rate ;
-    msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+    msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${toCurr.value}`;
 }
 
 Ex.addEventListener("click",()=>{
